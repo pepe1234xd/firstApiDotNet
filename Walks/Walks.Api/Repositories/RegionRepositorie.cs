@@ -1,4 +1,5 @@
-﻿using Walks.Api.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Walks.Api.Data;
 using Walks.Api.Models.Domain;
 
 namespace Walks.Api.Repositories
@@ -12,9 +13,22 @@ namespace Walks.Api.Repositories
             this.walksDbContext = walksDbContext;
         }
 
-        public IEnumerable<Region> GetAll()
+        public async Task<Region> AddAsync(Region region)
         {
-            return walksDbContext.Regions.ToList();
+            region.Id = Guid.NewGuid();
+            await walksDbContext.AddAsync(region);
+            await walksDbContext.SaveChangesAsync();
+            return region;
+        }
+
+        public async Task<IEnumerable<Region>> GetAllAsync()
+        {
+            return await walksDbContext.Regions.ToListAsync();
+        }
+
+        public async Task<Region> GetAsync(Guid id)
+        {
+           return await walksDbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

@@ -4,7 +4,10 @@ namespace Walks.Api.Repositories
 {
     public interface IRegionRepositorie
     {
-        Task<IEnumerable<Region>> GetAll();
+        Task<IEnumerable<Region>> GetAllAsync();
 
+        Task<Region> GetAsync(Guid id);
+
+        Task<Region> AddAsync(Region region);
     }
 }

@@ -18,6 +18,8 @@ builder.Services.AddDbContext<WalksDbContext>(options =>
 
 builder.Services.AddScoped<IRegionRepositorie, RegionRepositorie>();
 
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
