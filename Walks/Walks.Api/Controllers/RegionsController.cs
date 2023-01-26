@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Walks.Api.Models.Domain;
+using Walks.Api.Models.DTO;
 using Walks.Api.Repositories;
 
 namespace Walks.Api.Controllers
@@ -67,7 +68,7 @@ namespace Walks.Api.Controllers
         public async Task<IActionResult> AddRegionAsync(Models.DTO.AddRegionRequest addRegionRequest)
         {
             //request dto to domain model
-            var region = new Models.DTO.Region
+            var region = new Models.Domain.Region()
             {
                 Code= addRegionRequest.Code,
                 Area=addRegionRequest.Area,
@@ -93,6 +94,69 @@ namespace Walks.Api.Controllers
             };
 
             return CreatedAtAction(nameof(GetRegionAsync), new { id = regionDTO.Id }, regionDTO);
+        }
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> DeleteRegionAsync(Guid id)
+        {
+            //get region form db
+            var region = await regionRepositorie.DeleteAsync(id);
+
+            //if is null return not found
+            if(region == null)
+            {
+                return NotFound();
+            }
+
+            var regionDTO = new Models.DTO.Region
+            {
+                 Id=region.Id,
+                 Code=region.Code,
+                 Area=region.Area,
+                 Lat=region.Lat,
+                 Long=region.Long,
+                 Name=region.Name,
+                 Population=region.Population
+            };
+
+            return Ok(regionDTO);
+        }
+
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id, [FromBody] UpdateRegionRequest updateRegionRequest)
+        {
+            var region = new Models.Domain.Region
+            {
+                Code = updateRegionRequest.Code,
+                Area=updateRegionRequest.Area,
+                Lat=updateRegionRequest.Lat,
+                Long=updateRegionRequest.Long,
+                Name=updateRegionRequest.Name,
+                Population=updateRegionRequest.Population                
+            };
+
+            region = await regionRepositorie.UpdateAsync(id, region);
+
+            if (region == null)
+            {
+                return NotFound();
+            }
+
+            var regionDTO = new Models.DTO.Region
+            {
+                Id = region.Id,
+                Code = region.Code,
+                Area = region.Area,
+                Lat = region.Lat,
+                Long = region.Long,
+                Name = region.Name,
+                Population = region.Population
+
+            };
+
+            return Ok(regionDTO);
         }
     }
 }
