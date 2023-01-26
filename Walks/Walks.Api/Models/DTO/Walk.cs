@@ -1,4 +1,6 @@
-﻿namespace Walks.Api.Models.Domain
+﻿using Walks.Api.Models.DTO;
+
+namespace Walks.Api.Models.DTO
 {
     public class Walk
     {
@@ -10,6 +12,6 @@
 
         //navigation properties
         public Region Region { get; set; }
-        public WalkDifficult WalkDifficult { get; set; }
+        public WalkDificulty WalkDifficult { get; set; }
     }
 }
