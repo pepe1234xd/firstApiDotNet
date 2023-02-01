@@ -11,5 +11,7 @@ namespace Walks.Api.Repositories
         Task<WalkDifficult> AddAsync(WalkDifficult walkDifficult);
 
         Task<WalkDifficult> UpdateAsync(Guid id ,WalkDifficult walkDifficult);
+
+        Task<WalkDifficult> DeleteAsync(Guid id);
     }
 }
