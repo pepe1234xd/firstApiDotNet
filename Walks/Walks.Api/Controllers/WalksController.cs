@@ -30,6 +30,7 @@ namespace Walks.Api.Controllers
 
         [HttpGet]
         [Route("{id:guid}")]
+        [ActionName("GetWalkAsync")]
         public async Task<IActionResult> GetWalkAsync(Guid id)
         {
             //get walk domain objetc from db

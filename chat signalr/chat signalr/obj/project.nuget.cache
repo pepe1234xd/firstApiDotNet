@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "K8NWOD/+/2usvrXWPpLmBFl35j3vqSFmuKm02DKueW+8NT/X/q2tHqdFqBRr6yGQflrVBhZ7MbPbW69uZqsnEQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jose Alfredo\\OneDrive\\Escritorio\\Alfredo\\Source\\repos\\services\\net\\firtApi\\chat signalr\\chat signalr\\chat signalr.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jose Alfredo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Jose Alfredo\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Jose Alfredo\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Jose Alfredo\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Jose Alfredo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Jose Alfredo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
